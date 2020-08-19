@@ -13,7 +13,7 @@
     "default_title": "EmojiBlock"
   },
   "background": {
-    "scripts": ["background.js", "filter.js", "emoji.js"],
+    "scripts": ["data.js", "background.js"],
     "persistent": true
   },
   "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "storage"],
