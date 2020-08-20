@@ -1,10 +1,20 @@
+const link = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/google/241/"
 let filters = [];
 let emojis = [];
 let excludedEmojis = [];
+let enabled = true;
 
 chrome.storage.local.get(["EBnumber"], result => {
     if(result.EBnumber == undefined) {
         chrome.storage.local.set({"EBnumber": 0});
+    }
+});
+
+chrome.storage.local.get(["EBenabled"], result => {
+    if(result.EBenabled == undefined) {
+        chrome.storage.local.set({"EBenabled": true});
+    } else {
+        enabled = result.EBenabled;
     }
 });
 

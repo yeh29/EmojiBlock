@@ -7,6 +7,7 @@ function EmojiPage() {
       </div>
     );
 }
+// list avail emojis website
 
 export default EmojiPage;
 
