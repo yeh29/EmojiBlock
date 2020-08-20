@@ -24,4 +24,4 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 });
 
 //on complete fix css + remove other components?
-//message passing to get data
+//Enable + disable button?

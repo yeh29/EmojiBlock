@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 
 function Navbar(props) {
   return (
     <div className="Navbar">
-      <img src="/logo.png" alt=""></img>
+      <Image src="/logo.png" roundedCircle />
       <div className="button-group">
         <Button className={props.active === "home"? "selected" : "not-selected"} variant="info" 
           onClick={() => props.handleClick("home")}>

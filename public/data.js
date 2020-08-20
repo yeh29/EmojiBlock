@@ -1,18 +1,21 @@
+let filters = [];
+let emojis = [];
+let excludedEmojis = [];
+
 chrome.storage.local.get(["EBnumber"], result => {
     if(result.EBnumber == undefined) {
         chrome.storage.local.set({"EBnumber": 0});
     }
 });
 
-let filters = [];
 chrome.storage.local.get(["EBfilters"], result => {
-    if(result.EBfilters !== undefined) {
+    if(result.EBfilters == undefined) {
+        chrome.storage.local.set({"EBfilters": []});
+    } else {
         filters = result.EBfilters;
     }
 });
 
-let emojis = [];
-let excludedEmojis = [];
 chrome.storage.local.get(["EBemojis"], result => {
     if(result.EBemojis == undefined) {
         fetch("emoji.json").then(response => response.json()).then(data => {
@@ -24,42 +27,12 @@ chrome.storage.local.get(["EBemojis"], result => {
     }
 });
 chrome.storage.local.get(["EBexcluded"], result => {
-    if(result.EBexcluded !== undefined) {
+    if(result.EBexcluded == undefined) {
+        chrome.storage.local.set({"EBexcluded": []});
+    } else {
         excludedEmojis = result.EBexcluded;
     }
 });
-
-// function addToFilters(filter) {
-//     try {
-//         new RegExp(filter);
-//     } catch(error) {
-//         return "Invalid Filter Regex Syntax";
-//     }
-//     if(!filters.includes(filter)) {
-//         filters.push(filter);
-//         chrome.storage.local.set({"EBfilters": filters});
-//     } else {
-//         return "Filter Already Exists";
-//     }
-//     return "OK";
-// }
-
-// function removeFromFilters(index) {
-//     filters.splice(index, 1);
-//     chrome.storage.local.set({"EBfilters": filters});
-// }
-
-// function addToExcluded(index) {
-//     const emoji = emojis.splice(index, 1);
-//     excludedEmojis.push(emoji[0]);
-//     chrome.storage.local.set({"EBemojis": excludedEmojis});
-// } 
-
-// function removeFromExcluded(index) {
-//     const emoji = excludedEmojis.splice(index, 1);
-//     emojis.push(emoji[0]);
-//     chrome.storage.local.set({"EBemojis": excludedEmojis});
-// }
 
 function matchesFilters(url) {
     for(let i = 0; i < filters.length; i++) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Navbar from "./Navbar";
@@ -11,13 +11,8 @@ function App() {
   const [activePage, setActivePage] = useState("home");
 
   function handleNavClick(page) {
-    if(activePage !== page) {
-      setActivePage(page);
-    }
+    setActivePage(page);
   }
-
-  useEffect(() => {
-  }, [activePage]);
 
   return (
     <div className="App">
