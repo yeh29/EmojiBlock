@@ -1,4 +1,4 @@
-const link = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/google/241/"
+const emojiLink = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/72/google/241/"
 let filters = [];
 let emojis = [];
 let excludedEmojis = [];
@@ -29,7 +29,7 @@ chrome.storage.local.get(["EBfilters"], result => {
 chrome.storage.local.get(["EBemojis"], result => {
     if(result.EBemojis == undefined) {
         fetch("emoji.json").then(response => response.json()).then(data => {
-            emojis = data;
+            emojis = data.sort((a, b) => (a.title > b.tile)? 1 : ((b.title > a.title)? -1 : 0));
             chrome.storage.local.set({"EBemojis": emojis});
         });
     } else {

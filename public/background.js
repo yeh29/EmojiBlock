@@ -4,7 +4,7 @@ chrome.browserAction.onClicked.addListener(() =>
 });
 
 chrome.webRequest.onBeforeRequest.addListener(info => {
-    if(enabled && !info.url.startsWith(link) && matchesFilters(info.url)) {
+    if(enabled && !info.url.startsWith(emojiLink) && matchesFilters(info.url)) {
         return {redirectUrl: getRandEmoji()};
     } else {
         return;

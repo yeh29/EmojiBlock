@@ -25,7 +25,7 @@ function FilterTable(props) {
 
   function handleRemove(filter) {
     let newFilters = props.filters;
-    newFilters.splice(newFilters.findIndex(element => element === filter), 1);
+    newFilters.splice(newFilters.indexOf(filter), 1);
     chrome.storage.local.set({"EBfilters": newFilters});
     setConfirmVis(false);
     props.setFilters(newFilters);
@@ -35,7 +35,7 @@ function FilterTable(props) {
   function handleRemoveAll() {
     let newFilters;
     if(searchFilter.length === props.filters.length) {
-      newFilters = []
+      newFilters = [];
     } else {
       newFilters = props.filters.filter(filter => !searchFilter.includes(filter));
     }
