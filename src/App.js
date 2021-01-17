@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import HomePage from "./HomePage"
 import FilterPage from "./FilterPage"
 import EmojiPage from "./EmojiPage"
+import "./App.css"
 
 function App() {
 

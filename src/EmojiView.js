@@ -27,15 +27,11 @@ function EmojiView(props) {
 
   return (
     <div className={"emoji-view"}>
-      {props.selected !== undefined && (
-          <React.Fragment>
-            <Figure>
-                <Figure.Image width={120} height={120} src={props.selected.url} />
-                <Figure.Caption>{props.selected.title}</Figure.Caption>
-            </Figure>
-            <Button variant="primary" onClick={handleClick}>Change</Button>
-          </React.Fragment>
-      )}
+        <Figure>
+          <Figure.Image width={120} height={120} src={props.selected.url} />
+          <Figure.Caption>{props.selected.title}</Figure.Caption>
+        </Figure>
+        <Button variant="primary" onClick={handleClick}>Change</Button>
     </div>
   );
 }

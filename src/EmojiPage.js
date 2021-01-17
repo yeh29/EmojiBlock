@@ -10,7 +10,7 @@ function EmojiPage() {
 
   const [emojis, setEmojis] = useState([]);
   const [excluded, setExcluded] = useState([]);
-  const [selectedEmoji, setSelectedEmoji] = useState({});
+  const [selectedEmoji, setSelectedEmoji] = useState(null);
 
   useEffect(() => {
     chrome.storage.local.get(["EBemojis"], result => {
@@ -29,7 +29,9 @@ function EmojiPage() {
         setSelected={setSelectedEmoji} message="Emojis"/>
       <EmojiTable currTable={excluded} otherTable={emojis} setCurr={setExcluded} setOther={setEmojis}
         setSelected={setSelectedEmoji} message="Excluded Emojis"/>
-      <EmojiView selected={selectedEmoji} emojis={emojis} excluded={excluded} setEmojis={setEmojis} setExcluded={setExcluded} />
+      {selectedEmoji !== null && (
+        <EmojiView selected={selectedEmoji} emojis={emojis} excluded={excluded} setEmojis={setEmojis} setExcluded={setExcluded} />
+      )}
     </div>
   );
 }

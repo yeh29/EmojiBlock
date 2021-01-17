@@ -1,0 +1,29 @@
+.Navbar {
+    display: flex;
+    background: #ffc83d9e;
+    border-bottom-style: solid;
+    border-bottom-color: #ffc83d69;
+    height: 3em;
+}
+
+.Navbar img {
+  width: 3.5em;
+  margin: 0.1em;
+}
+
+.Navbar .button-toolbar {
+  display: flex;
+  justify-content: center;
+  margin-left: 0.2em;
+  width: 100%;
+}
+
+.Navbar button {
+  margin-right: 0.1em;
+  width: 33%;
+}
+
+.Navbar button.selected {
+  text-decoration: underline solid white 0.15em;
+  text-underline-position: under;
+}

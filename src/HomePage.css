@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    justify-content: center;
+}
+
+.home .jumbotron {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.home .jumbotron#numberbox {
+    display: flex;
+    justify-content: center;
+}

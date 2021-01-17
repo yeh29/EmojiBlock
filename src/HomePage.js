@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button, Image, Jumbotron } from "react-bootstrap";
+import "./HomePage.css";
 
 function HomePage() {
 
@@ -9,7 +10,7 @@ function HomePage() {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
-    chrome.storage.local.get(["EBnumber"], result => {
+   chrome.storage.local.get(["EBnumber"], result => {
       setNumAds(result.EBnumber.toLocaleString());
     });
     chrome.storage.local.get(["EBenabled"], result => {
@@ -24,14 +25,15 @@ function HomePage() {
 
   return (
     <div className="home">
-      <Jumbotron>
+      <Jumbotron id="logobox">
         <h1>EmojiBlock</h1>
         <Image src="/logo.png" rounded />
-      </Jumbotron>
-      <Jumbotron>
-        <p>Number of Ads Blocked: {numAds}</p>
         {enabled && (<Button variant="danger" onClick={handleClick}>Disable</Button>)}
         {!enabled && (<Button variant="success" onClick={handleClick}>Enable</Button>)}
+      </Jumbotron>
+      <Jumbotron id="numberbox">
+        <h1>Number of Ads Blocked</h1>
+        <h2>{numAds}</h2>
       </Jumbotron>
     </div>
   );
