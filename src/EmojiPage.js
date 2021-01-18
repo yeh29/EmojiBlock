@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import EmojiTable from "./EmojiTable";
 import EmojiView from "./EmojiView";
+import "./EmojiPage.css";
 
 function EmojiPage() {
   
@@ -24,14 +25,16 @@ function EmojiPage() {
   return (
     <div className="emoji">
       <h1>Emojis</h1>
-      <a href={link}><h6>List of available emojis.</h6></a>
-      <EmojiTable currTable={emojis} otherTable={excluded} setCurr={setEmojis} setOther={setExcluded} 
-        setSelected={setSelectedEmoji} message="Emojis"/>
-      <EmojiTable currTable={excluded} otherTable={emojis} setCurr={setExcluded} setOther={setEmojis}
-        setSelected={setSelectedEmoji} message="Excluded Emojis"/>
+      <p><a href={link}>List of available emojis.</a> Double click any table entry to view the emoji.</p>
       {selectedEmoji !== null && (
         <EmojiView selected={selectedEmoji} emojis={emojis} excluded={excluded} setEmojis={setEmojis} setExcluded={setExcluded} />
       )}
+      <div className="emoji-tables">
+        <EmojiTable currTable={emojis} otherTable={excluded} setCurr={setEmojis} setOther={setExcluded} 
+          setSelected={setSelectedEmoji} message="Emojis"/>
+        <EmojiTable currTable={excluded} otherTable={emojis} setCurr={setExcluded} setOther={setEmojis}
+          setSelected={setSelectedEmoji} message="Excluded Emojis"/>
+      </div>
     </div>
   );
 }

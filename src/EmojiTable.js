@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
+import "./EmojiTable.css";
 
 function EmojiTable(props) {
 
@@ -75,17 +76,19 @@ function EmojiTable(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Form.Control type="text" placeholder={"Search " + props.message} onChange={handleSearchChange} ref={input} />
+      <div className="change-directions">
+        <p>Click the following button to change all emojis to the other side.</p>
         <Button variant="primary" onClick={() => {setConfirmVis(true)}}>Change All</Button>
-        <Table striped bordered hover responsive size="sm">
+      </div>
+      <Form.Control type="text" placeholder={"Search " + props.message} onChange={handleSearchChange} ref={input} />
+      <Table striped bordered hover responsive size="sm">
         <thead>
-            <tr><th>Current {props.message}</th></tr>
+          <tr><th>Current {props.message}</th></tr>
         </thead>
         <tbody>
-            {search.map(fillTable)}
+          {search.map(fillTable)}
         </tbody>
-        </Table>
-        <h6>Double click to view emoji.</h6>
+      </Table>
     </div>
   );
 }

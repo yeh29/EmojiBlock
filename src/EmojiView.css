@@ -1,0 +1,13 @@
+.emoji .emoji-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emoji .emoji-view button {
+    margin-bottom: 2em;
+}
+
+.emoji .emoji-view figure {
+    margin-bottom: 0.5em;
+}

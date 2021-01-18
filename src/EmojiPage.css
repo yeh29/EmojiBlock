@@ -1,0 +1,7 @@
+.emoji h1 {
+    text-align: center;
+}
+
+.emoji .emoji-tables {
+    display: flex;
+}

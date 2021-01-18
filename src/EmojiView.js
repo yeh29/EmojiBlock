@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Button, Figure } from "react-bootstrap";
+import "./EmojiView.css";
 
 function EmojiView(props) {
 
@@ -27,6 +28,7 @@ function EmojiView(props) {
 
   return (
     <div className={"emoji-view"}>
+      <h6>Emoji Viewer</h6>
         <Figure>
           <Figure.Image width={120} height={120} src={props.selected.url} />
           <Figure.Caption>{props.selected.title}</Figure.Caption>

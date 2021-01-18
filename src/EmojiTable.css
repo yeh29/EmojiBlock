@@ -1,0 +1,13 @@
+.emoji .emoji-table {
+    width: 50%;
+}
+
+.emoji .emoji-table .change-directions {
+    display: flex;
+}
+
+.emoji .emoji-table .change-directions p {
+    position: relative;
+    top: 0.4em;
+    margin-right: 0.2em;
+}
