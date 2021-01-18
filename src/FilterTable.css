@@ -1,0 +1,9 @@
+.filter-table .remove-directions {
+    display: flex;
+}
+
+.filter-table .remove-directions p {
+    position: relative;
+    top: 0.4em;
+    margin-right: 0.2em;
+}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
 import FilterTable from "./FilterTable"
+import "./FilterPage.css";
 
 function FilterPage() {
 
@@ -44,15 +45,14 @@ function FilterPage() {
   return (
     <div className="filter">
       <h1>Filters</h1>
+      <div className="add-directions">
+        <p>Type in the box below to add a filter rule. <a href={link}>Follow JavaScript regex syntax.</a></p>
+      </div>
       {message !== "OK" && (<Alert variant="danger">{message}</Alert>)}
       <Form inline onSubmit={handleSubmit}>
-        <Form.Label>
-          <a href={link}><h6>Follow JavaScript regex syntax.</h6></a>
-        </Form.Label>
         <Form.Control type="text" placeholder="Add Filter" ref={input}/>
         <Button variant="success" onClick={handleAddClick}>Add Filter</Button>
       </Form>
-      <h6>Rules</h6>
       <FilterTable filters={filters} setFilters={setFilters} setMessage={setMessage}/>
     </div>
   );

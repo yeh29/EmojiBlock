@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
+import "./FilterTable.css";
 
 function FilterTable(props) {
 
@@ -69,17 +70,17 @@ function FilterTable(props) {
           </Button>
         </Modal.Footer>
       </Modal>
+      <div className="remove-directions">
+        <p>Double click an entry on the table to remove the filter. Click the following button to remove all filters.</p>
+        <Button variant="primary" onClick={() => {setConfirmVis(true); setRemoveType("*removeAll*")}}>Remove All</Button>
+      </div>
+      <h6>Current Filters</h6>
       <Form.Control type="text" placeholder="Search Filters" onChange={handleSearchChange} ref={input}></Form.Control>
       <Table striped bordered hover responsive size="sm">
-        <thead>
-          <tr><th>Current Filters</th></tr>
-        </thead>
         <tbody>
           {searchFilter.map(fillTable)}
         </tbody>
       </Table>
-      <h6>Double click to remove an entry.</h6>
-      <Button variant="primary" onClick={() => {setConfirmVis(true); setRemoveType("*removeAll*")}}>Remove All</Button>
     </div>
   );
 }
